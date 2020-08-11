@@ -1,0 +1,7 @@
+echo "# AR_Tools" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/jacahill/AR_Tools.git
+git push -u origin master
+                
