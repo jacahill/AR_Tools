@@ -21,7 +21,23 @@ Broad pipeline for AR analysis
    - Gene Association analysis
          - Identify the distribution of ARs in coding/non-coding regions
             -
-         - Associate ARs with nearby genes to predict their functional role.
+         - Associate ARs with nearby genes to predict their functional role. Repeat for Conserved Elements (CEs) to allow enrichment testing.
             - GREATstyle_basal_plus_extension.pc.py
-         - 
+         - Now having 2 files one for ARs and one for CEs extract information from both and coalate into a gene by gene table.
+            -
+   - Hotspot identification
+         - Measure the density of ARs across the genome in sliding windows
+            - 
+         - Randomly sample (without replacement) conserved elements equal to the number of ARs. Measue peak density across the enitre genome for at least 100 replicates. Use 95th percentile of these maxima as a cutoff for significance.
+            - 
+         - Test for corellation of AR/CE density by plotting values from [src] for ARs and for CEs against each other and testing for linear corellation (any basic statistical program).
+   - Genelist enrichment
+         - Download lists of trait relevant genes from reputable sources.
+         - Use Gene enrichment output files for ARs to calculate the observed number of intersections between the genelist and the AR set.
+            - 
+         - Randomly sample (without replacement) a number of CEs equal to the number of ARs and measure the amount of intersection wiht the genelist. Repeat 1000 times to establish an expected range of associations with the genelist.
+            - 
+         - Calculate Z-scores for enrichment of your data.
+            - 
+         
 
