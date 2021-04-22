@@ -1,3 +1,12 @@
+This is a collection of supplemental tools for analysis of Accelerated Regions (ARs) with the PHAST toolkit. PHAST, and it's implementation RPHAST are well documentented programs with extensive tutorials you can access here. http://compgen.cshl.edu/phast/
+
+Tools in this repository are broken into the following categories
+   - Maf curration
+      Although PHAST is an excellent toolkit in many ways it does not necessarilly apply all of the filtration that you might need for modern CACTUS alignment data. 
+   - Gene Association analysis
+   - Genelist enrichment analysis
+
+
 echo "# AR_Tools" >> README.md
 git init
 git add README.md
