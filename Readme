@@ -5,12 +5,23 @@ Tools in this repository are broken into the following categories
       Although PHAST is an excellent toolkit in many ways it does not necessarilly apply all of the filtration that you might need for modern CACTUS alignment data. 
    - Gene Association analysis
    - Genelist enrichment analysis
+   
+Broad pipeline for AR analysis
+   - Extract maf from hal file, see haltools documentation
+   - Maf QC
+         - Remove duplicates from the alignment
+            -
+         - Identify Paralogous alignment regions
+            - 
+   - Estimate neutral model with PhyloFit (see PHAST documentation)
+   - Identify conserved elements with PHASTCons (see PHAST documentation)
+   - Identify GC Biased gene conversion in branches of interest (see PHAST documentation)
+   - Test Conserved Elements for acceleartion in branches of interest (see PHAST documentation)
+   - Resample from non-GC Biased conserved elements to conduct Benjamini Hochberg multiple tests correction (see PHAST documentation)
+   - Gene Association analysis
+         - Identify the distribution of ARs in coding/non-coding regions
+            -
+         - Associate ARs with nearby genes to predict their functional role.
+            - GREATstyle_basal_plus_extension.pc.py
+         - 
 
-
-echo "# AR_Tools" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/jacahill/AR_Tools.git
-git push -u origin master
-                
