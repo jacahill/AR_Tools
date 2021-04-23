@@ -19,8 +19,8 @@ Broad pipeline for AR analysis
    - Test Conserved Elements for acceleartion in branches of interest (see PHAST documentation)
    - Resample from non-GC Biased conserved elements to conduct Benjamini Hochberg multiple tests correction (see PHAST documentation)
    - Gene Association analysis
-         - Identify the distribution of ARs in coding/non-coding regions
-            -
+         - Determine whether ARs are coding or, non-coding 
+            - Classify_ARs.py
          - Associate ARs with nearby genes to predict their functional role. Repeat for Conserved Elements (CEs) to allow enrichment testing.
             - GREATstyle_basal_plus_extension.pc.py
          - Now having 2 files one for ARs and one for CEs extract information from both and coalate into a gene by gene table.
