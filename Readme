@@ -10,7 +10,7 @@ Broad pipeline for AR analysis
    - Extract maf from hal file, see haltools documentation
    - Maf QC
          - Remove duplicates from the alignment
-            -
+            - Dedup_maf.py
          - Identify Paralogous alignment regions
             - 
    - Estimate neutral model with PhyloFit (see PHAST documentation)
