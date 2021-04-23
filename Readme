@@ -12,7 +12,7 @@ Broad pipeline for AR analysis
          - Remove duplicates from the alignment
             - Dedup_maf.py
          - Identify Paralogous alignment regions
-            - 
+            - Paralog_program_v0.2.py
    - Estimate neutral model with PhyloFit (see PHAST documentation)
    - Identify conserved elements with PHASTCons (see PHAST documentation)
    - Identify GC Biased gene conversion in branches of interest (see PHAST documentation)
