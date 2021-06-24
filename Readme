@@ -18,26 +18,42 @@ Broad pipeline for AR analysis
    - Identify GC Biased gene conversion in branches of interest (see PHAST documentation)
    - Test Conserved Elements for acceleartion in branches of interest (see PHAST documentation)
    - Resample from non-GC Biased conserved elements to conduct Benjamini Hochberg multiple tests correction (see PHAST documentation)
+ 
    - Gene Association analysis
          - Determine whether ARs are coding or, non-coding 
             - Classify_ARs.py
          - Associate ARs with nearby genes to predict their functional role. Repeat for Conserved Elements (CEs) to allow enrichment testing.
             - GREATstyle_basal_plus_extension.pc.py
          - Now having 2 files one for ARs and one for CEs extract information from both and coalate into a gene by gene table.
-            -
+            - I use Excel for this.
+            
    - Hotspot identification
          - Measure the density of ARs across the genome in sliding windows
-            - 
+            - Step 1: Create a .bed format file (https://genome.ucsc.edu/FAQ/FAQformat.html#format1) containing each region you want to measure
+            - Step 2: bedtools coverage -a RegionBedfile.bed -b AR_file.bed
+            - repeat step 2 (above) for conserved elements and save as a separate file.
          - Randomly sample (without replacement) conserved elements equal to the number of ARs. Measue peak density across the enitre genome for at least 100 replicates. Use 95th percentile of these maxima as a cutoff for significance.
-            - 
+            - For random sampling use: 
+               - random_sample_CE.py CEfile NumberofARs
+            - For the above: 
+               - CEfile = a file with the location of all CEs in bed format.
+               - NumberofARs = the number of observed ARs in the real data.
+            - Output will be the highest density observed through random sampling for 100 replecates.
+            - Sort and take the 95th percentile to determine a hotspot minimum density.
          - Test for corellation of AR/CE density by plotting values from [src] for ARs and for CEs against each other and testing for linear corellation (any basic statistical program).
+            - I use excel for this but you could use any plotting program.
+
    - Genelist enrichment
          - Download lists of trait relevant genes from reputable sources.
+            - Create a file: genelist.txt with one gene name per line and no other content.
          - Use Gene enrichment output files for ARs to calculate the observed number of intersections between the genelist and the AR set.
-            - 
+            - Run: GREAT_AR_gene_intersect.py genelist.txt ARfile.txt
+            - ARfile should be the output from GREATstyle_basal_plus_extension.pc.py
          - Randomly sample (without replacement) a number of CEs equal to the number of ARs and measure the amount of intersection wiht the genelist. Repeat 1000 times to establish an expected range of associations with the genelist.
-            - 
-         - Calculate Z-scores for enrichment of your data.
-            - 
+            - Step 1: run: python random_sample_CEs.py CEfile NumberofARs > CE_sample.tmp.txt
+            - Step 2: run: GREATstyle_basal_plus_extension.pc.py
+            - Step 3: run: GREAT_AR_gene_intersect.py
+            -  Record result and repeat 1000 times.
+
          
 
